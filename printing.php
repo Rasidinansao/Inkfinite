@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Printing Services | Custom T-Shirts, Lanyards & Stickers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/ink.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    
+    .product-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .product-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .product-info {
+        padding: 1.5rem;
+    }
+    
+    .product-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .product-info p {
+        margin-bottom: 1rem;
+        color: #666;
+    }
+    
+    .price {
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+        
+        .contact {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .message-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #e74c3c;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+        border: none;
+        outline: none;
+    }
+    
+    .message-button:hover {
+        transform: scale(1.1);
+        background-color: #c0392b;
+    }
+    
+    /* Message Form Styles */
+    .message-form {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 300px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        padding: 1.5rem;
+        display: none;
+        z-index: 100;
+        animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .message-form.show {
+        display: block;
+    }
+    
+    .message-form h3 {
+        margin-bottom: 1rem;
+        color: #2c3e50;
+        text-align: center;
+    }
+    
+    .message-form input,
+    .message-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        transition: border-color 0.3s;
+    }
+    
+    .message-form input:focus,
+    .message-form textarea:focus {
+        border-color: #e74c3c;
+        outline: none;
+    }
+    
+    .message-form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .message-form button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    
+    .message-form button:hover {
+        background-color: #c0392b;
+    }
+    
+    /* Close button for the form */
+    .close-form {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #777;
+    }
+    
+    .close-form:hover {
+        color: #333;
+    }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-buttons button:first-child {
+    background-color: #1877f2;
+    color: white;
+}
+
+.modal-buttons button:last-child {
+    background-color: #ddd;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.testimonials {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+            overflow: hidden;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        }
+        
+        .testimonial-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .testimonial-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .testimonial-container::-webkit-scrollbar-thumb {
+            background: #e74c3c;
+            border-radius: 10px;
+        }
+        
+        .testimonial {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+            scroll-snap-align: start;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-size: 4rem;
+            color: #e74c3c;
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1rem;
+            font-style: italic;
+            padding-top: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #e74c3c;
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .author-title {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        
+        .location {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .location h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .address {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .address p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">INKFINITE DIGITAL PRINTING SHOP</div>
+        <div class="tagline">Custom Printing Services That Stand Out</div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Premium Custom Printing Services</h1>
+            <p>High-quality custom T-shirts, lanyards, and stickers for businesses, events, and personal use.</p>
+            <a href="#contact" class="cta-button">Get Your Quote Today</a>
+        </section>
+        
+        <section class="products">
+            <div class="product-card">
+            <div class="product-image" style="background-image: url('images/tshirt.jpg');"></div>
+            <div class="product-info">
+                    <h3>Custom T-Shirts</h3>
+                    <p>High-quality custom printed t-shirts in various styles and colors. Perfect for events, teams, or promotions.</p>
+                    <p class="price">Starting at ₱50.00</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+             <div class="product-image" style="background-image: url('images/lanyard.jpg');"></div>
+                <div class="product-info">
+                    <h3>Custom Lanyards</h3>
+                    <p>Durable, full-color printed lanyards for your business, school, or event. Various attachment options available.</p>
+                    <p class="price">Starting at ₱40.00</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+            <div class="product-image" style="background-image: url('images/stickers.jpg');"></div>
+               <div class="product-info">
+                    <h3>Custom Stickers</h3>
+                    <p>Vinyl stickers in any shape or size. Weather-resistant and vibrant colors that last.</p>
+                    <p class="price">Starting at ₱75.00</p>
+                </div>
+            </div>
+        </section>
+        
+  
+
+<!-- Custom Confirmation Modal -->
+<div id="customModal" class="modal">
+    <div class="modal-content">
+        <p>Do you want to message us on Facebook?</p>
+        <div class="modal-buttons">
+            <button onclick="proceedToMessenger()">Yes</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+       <script>
+function showCustomModal() {
+    document.getElementById("customModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("customModal").style.display = "none";
+}
+
+function proceedToMessenger() {
+    window.open("https://web.facebook.com/messages/t/100965265311982", "_blank");
+    closeModal();
+}
+</script>
+
+<section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The quality of the t-shirts exceeded my expectations! PrintPro delivered our company merchandise on time and the colors were vibrant. Will definitely order again!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Sarah Johnson</span>
+                            <span class="author-title">Marketing Director</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "We ordered 500 lanyards for our conference and they arrived perfectly on schedule. The printing was crisp and clear. Excellent customer service throughout the process."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Michael Chen</span>
+                            <span class="author-title">Event Coordinator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "I've used PrintPro for all my sticker needs for my small business. The quality is consistent, prices are fair, and they always deliver on time. Highly recommend!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Emily Rodriguez</span>
+                            <span class="author-title">Small Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional testimonials for better scrolling -->
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The turnaround time was incredible! We needed last-minute shirts for our charity run and PrintPro came through with flying colors. The prints still look great after many washes."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">David Wilson</span>
+                            <span class="author-title">Nonprofit Organizer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "As a school administrator, I appreciate PrintPro's attention to detail. Our custom lanyards for staff and students were perfect and delivered ahead of schedule."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Jennifer Lee" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Jennifer Lee</span>
+                            <span class="author-title">School Principal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <section id="contact" class="contact">
+    <h2>Ready to Create Something Amazing?</h2>
+    <p>We're here to help bring your ideas to life. Contact us for a free quote or to discuss your custom printing needs.</p>
+    <a href="#" class="cta-button" onclick="showCustomModal()">Message us now!</a>
+</section>
+
+        
+        <section class="location">
+            <h2>Visit Our Shop</h2>
+            <div class="location-content">
+                <div class="address">
+                    <p><strong>INKFINTITE DIGITAL PRINTING SHOP</strong></p>
+                    <p>Gumamela extension</p>
+                    <p>Zone 6, Carmen</p>
+                    <p>Cagayan de Oro City, 9000</p>
+                    <p>Philippines</p>
+                    <p>☎  0975 555 9740</p>
+                    <p>✉ rasidinansaojr@gmail.com</p>
+                    <p>🕒 Mon-Fri: 9AM - 6PM</p>
+                    <p>🕒 Sat: 10AM - 4PM</p>
+                    <p>🕒 Sun: Closed</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.8069599142823!2d124.62901877495906!3d8.47779269737369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32fff3b8a63b36eb%3A0x31456084f0b0ff99!2sINKFINITE%20DIGITAL%20PRINTING%20SHOP!5e1!3m2!1sen!2sph!4v1746281047078!5m2!1sen!2sph" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+    
+    <div class="message-button" id="messageButton">✉️</div>
+    
+    <div class="message-form" id="messageForm">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm" action="https://formspree.io/f/xjkwyazl" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+    const messageButton = document.getElementById('messageButton');
+    const messageForm = document.getElementById('messageForm');
+    const contactForm = document.getElementById('contactForm');
+    
+    // Toggle form visibility
+    messageButton.addEventListener('click', () => {
+        messageForm.classList.toggle('show');
+    });
+    
+    
+    // Close form when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!messageForm.contains(e.target) && e.target !== messageButton) {
+            messageForm.classList.remove('show');
+        }
+    });
+    
+    // Form submission handling
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const formValues = Object.fromEntries(formData.entries());
+        
+        // Here you would typically send the form data to your server
+        alert(`Thank you, ${formValues.name}! Your message has been sent. We'll contact you soon.`);
+        contactForm.reset();
+        messageForm.classList.remove('show');
+        
+        // In a real implementation, you would send the data to your email
+        // either via server-side code or a service like Formspree
+    });
+</script>
+    
+    <footer>
+        <p>&copy; 2023 InkFinite Digital Printing Shop. All rights reserved.</p>
+    </footer>
+    
+   
+</body>
+</html>
